@@ -14,3 +14,7 @@ reqwest = { version = "0.12", default-features = false, features = ["blocking", 
 serde = { version = "1", features = ["derive"] }
 serde_json = "1"
 urlencoding = "2"
+
+[target.'cfg(windows)'.dependencies]
+# Direct user32 calls instead of spawning PowerShell for every wallpaper change.
+windows-sys = { version = "0.61", features = ["Win32_UI_WindowsAndMessaging"] }
